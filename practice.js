@@ -153,12 +153,20 @@ function toPower(num, exponent = 2){
 // 	}
 // 	return obj;
 //   }
+let evenOdd = (...rest) => {
+	return {
+		even:rest.filter(x=>{return (x+1)%2}),
+		odd:rest.filter(x=>{return x%2})
+	}
+}
 
 
 // write a function named multiply that takes in a num parameter and an arbitrary amount of
 // additional numbers. This function should return an array of each additional number
 // multiplied by num.
-// function multiply(num, amit)
+let multiply = (num, ...rest) =>{
+	return rest.map(x=> x*num);
+}
 
 
 // do not modify
@@ -167,15 +175,18 @@ const bits = [ 2, 4, 8, 16, 32, 64, 128 ];
 // using an arrow function and the built in .map method, create a new array
 // named mooresBits. mooresBits should be the bits array doubled.
 
-// let mooresBits => map.bits*2;
+let mooresBits = bits.map(x => x * 2);
 		
 
 // do not modify
 const that = {
-	bind: "returns a function definition with the specified context"
+      bind: "returns a function definition with the specified context"
 	, call: "invokes a function with the specified context"
 	, apply: "invokes a function with the specified context, passing an array of arguments individually"
 }
 
 // using an arrow function, add a property named arrow that returns the window object
 // do this without using the window keyword. HINT: The default binding of the this keyword
+that.arrow = ()=>{
+	return this;
+}
